@@ -2,7 +2,8 @@
   --bg-color: #0a0a0a;
   --text-primary: #ffffff;
   --text-secondary: #aaaaaa;
-  --accent-color: #ff3b30; /* Vivid Red/Orange like inspiration */
+  --accent-color: #ff3b30;
+  /* Vivid Red/Orange like inspiration */
   --font-primary: 'Outfit', sans-serif;
   --max-width: 1400px;
   --spacing-section: 120px;
@@ -28,7 +29,12 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -59,13 +65,14 @@ section {
 
 /* Header/Nav */
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   padding: 2rem 0;
   z-index: 100;
-  mix-blend-mode: difference; /* Ensure visibility on light/dark backgrounds */
+  mix-blend-mode: difference;
+  transition: transform 0.3s ease-in-out;
 }
 
 nav {
@@ -100,6 +107,20 @@ nav {
   opacity: 1;
 }
 
+.btn-download {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+  background-color: #fff;
+  color: #000 !important;
+  /* Force black text on hover */
+  border-color: #fff;
+}
+
 /* Hero Section */
 .hero {
   min-height: 100vh;
@@ -116,11 +137,13 @@ nav {
 }
 
 .hero h1 {
-  font-size: clamp(4rem, 15vw, 12rem); /* Massive responsive text */
+  font-size: clamp(4rem, 15vw, 12rem);
+  /* Massive responsive text */
   text-transform: uppercase;
   line-height: 0.9;
   margin-bottom: 2rem;
-  white-space: nowrap; /* Keep name on one line if possible or controlled break */
+  white-space: nowrap;
+  /* Keep name on one line if possible or controlled break */
 }
 
 .hero-sub {
@@ -128,7 +151,7 @@ nav {
   justify-content: space-between;
   align-items: flex-end;
   margin-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 2rem;
 }
 
@@ -144,8 +167,10 @@ nav {
   transform: translate(-50%, -50%);
   z-index: 1;
   width: 40vw;
-  height: 60vh; /* Adjust based on image aspect ratio */
-  opacity: 0.6; /* Subtler effect */
+  height: 60vh;
+  /* Adjust based on image aspect ratio */
+  opacity: 0.6;
+  /* Subtler effect */
   filter: grayscale(100%);
   overflow: hidden;
   transition: filter 0.5s ease;
@@ -191,25 +216,30 @@ nav {
 
 .service-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
+  gap: 4rem;
   padding: 3rem 0;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   transition: background-color 0.3s ease;
 }
 
 .service-item:hover {
-  background-color: rgba(255,255,255,0.02); /* Subtle hover effect */
+  background-color: rgba(255, 255, 255, 0.02);
+  /* Subtle hover effect */
 }
 
 .service-number {
-  font-family: monospace; /* Use monospaced font for numbers? Or Outline font */
+  font-family: monospace;
+  /* Use monospaced font for numbers? Or Outline font */
   font-size: 4rem;
   font-weight: 300;
-  -webkit-text-stroke: 1px var(--text-secondary); /* Outline effect */
+  -webkit-text-stroke: 1px var(--text-secondary);
+  /* Outline effect */
   color: transparent;
   margin-right: 2rem;
-  width: 100px; /* Fixed width for alignment */
+  width: 100px;
+  /* Fixed width for alignment */
 }
 
 .service-details h3 {
@@ -231,11 +261,184 @@ nav {
 
 .skill-tag {
   font-size: 0.8rem;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 0.2rem 0.8rem;
   border-radius: 20px;
 }
 
+
+/* Portfolio Section */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  /* Contain the image */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent-color);
+}
+
+.project-image-container {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  margin-top: 0;
+}
+
+.project-card:hover .project-image-container {
+  max-height: 300px;
+  /* Value large enough to show the image */
+  opacity: 1;
+  margin-top: 1.5rem;
+}
+
+.project-image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent-color);
+}
+
+.project-year {
+  font-family: monospace;
+  color: var(--accent-color);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  /* Pushes content down if needed */
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  overflow: hidden;
+  /* Hide overflow for marquee */
+  padding: var(--spacing-section) 0;
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 30s linear infinite;
+  padding: 1rem 0;
+  /* Space for shadow/transform */
+}
+
+/* Pause animation on hover */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.testimonial-card {
+  flex: 0 0 400px;
+  /* Fixed width for consistent cards */
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 1rem;
+  object-fit: cover;
+  border: 2px solid var(--accent-color);
+}
+
+.testimonial-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.testimonial-company {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.testimonial-message {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.testimonial-help {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--accent-color);
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-100% - 2rem));
+    /* Scroll full width + gap */
+    /* Note: JS will duplicate content, so -100% of the *original* set is needed if we organize it right, 
+       or we scroll -50% of the *total* duplicated track. 
+       Let's assume we scroll -50% of the track if we duplicate it once. 
+    */
+    transform: translateX(-50%);
+  }
+}
 
 /* Resume / Experience Section */
 .resume-grid {
@@ -285,7 +488,7 @@ nav {
 /* Contact Footer */
 footer {
   padding: 4rem 0;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 4rem;
 }
 
@@ -316,23 +519,24 @@ footer {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 15vw; /* Adjust for mobile */
+    font-size: 15vw;
+    /* Adjust for mobile */
   }
-  
+
   .hero-sub {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .hero-image-container {
     width: 80vw;
     height: 50vh;
   }
-  
+
   .service-item {
     flex-direction: column;
   }
-  
+
   .service-number {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -342,12 +546,12 @@ footer {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .resume-category {
     position: static;
     margin-bottom: 1rem;
   }
-  
+
   .contact-content {
     flex-direction: column;
   }

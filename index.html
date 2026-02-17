@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vordi Drilon | Digital Marketing & Admin Specialist</title>
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header>
@@ -20,9 +23,12 @@
                 <a href="#" class="logo">Vordi Drilon</a>
                 <div class="nav-links">
                     <a href="#about">About</a>
-                    <a href="#services">Services</a> <!-- Core Skills -->
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#testimonials">Testimonials</a>
                     <a href="#experience">Experience</a>
                     <a href="#contact">Contact</a>
+                    <a href="Vordi Drilon - Resume.pdf" download class="btn-download">Download Resume</a>
                 </div>
             </nav>
         </div>
@@ -47,10 +53,14 @@
         <!-- Intro Section -->
         <section id="about" class="intro fade-up">
             <div class="container">
-                <h2>I'm a results-driven <span class="highlight">Specialist</span> who partners with brands to <span class="highlight">improve workflow automation</span> and increase <span class="highlight">organic traffic</span>.</h2>
+                <h2>I'm a results-driven <span class="highlight">Specialist</span> who partners with brands to <span
+                        class="highlight">improve workflow automation</span> and increase <span
+                        class="highlight">organic traffic</span>.</h2>
                 <p>
-                    With combined 5+ years of experience in SEO, link building, Shopify management, lead generation, and outreach campaigns. 
-                    Skilled in building systems that support business growth for startups, eCommerce brands, SaaS companies, and agencies.
+                    With combined 5+ years of experience in SEO, link building, Shopify management, lead generation, and
+                    outreach campaigns.
+                    Skilled in building systems that support business growth for startups, eCommerce brands, SaaS
+                    companies, and agencies.
                 </p>
             </div>
         </section>
@@ -64,7 +74,8 @@
                         <div class="service-number">01</div>
                         <div class="service-details">
                             <h3>SEO & Outreach</h3>
-                            <p>Driving organic growth through strategic on-page optimization, technical audits, and high-quality link building campaigns.</p>
+                            <p>Driving organic growth through strategic on-page optimization, technical audits, and
+                                high-quality link building campaigns.</p>
                             <div class="skills-tags">
                                 <span class="skill-tag">On-Page SEO</span>
                                 <span class="skill-tag">Technical Audits</span>
@@ -79,7 +90,8 @@
                         <div class="service-number">02</div>
                         <div class="service-details">
                             <h3>Shopify & E-commerce</h3>
-                            <p>Managing and optimizing stores for speed and conversion. Custom liquid programming and landing page creation.</p>
+                            <p>Managing and optimizing stores for speed and conversion. Custom liquid programming and
+                                landing page creation.</p>
                             <div class="skills-tags">
                                 <span class="skill-tag">Store Management</span>
                                 <span class="skill-tag">Speed Optimization</span>
@@ -94,7 +106,8 @@
                         <div class="service-number">03</div>
                         <div class="service-details">
                             <h3>Data & Operations</h3>
-                            <p>Streamlining workflows with automation and precise data management to support admin operations.</p>
+                            <p>Streamlining workflows with automation and precise data management to support admin
+                                operations.</p>
                             <div class="skills-tags">
                                 <span class="skill-tag">Lead Generation</span>
                                 <span class="skill-tag">Data Management</span>
@@ -107,17 +120,29 @@
             </div>
         </section>
 
+        <!-- Portfolio Section -->
+        <section id="portfolio">
+            <div class="container">
+                <div class="resume-category" style="margin-bottom: 2rem;">Selected Works</div>
+                <h2>Featured <span class="highlight">Projects</span></h2>
+                <div id="portfolio-grid" class="portfolio-grid fade-up">
+                    <!-- Projects will be injected here via JS -->
+                    <p id="loading-text" style="color: var(--text-secondary);">Loading projects...</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Professional Experience -->
         <section id="experience">
             <div class="container">
                 <div class="resume-grid">
                     <div class="resume-category">Experience</div>
                     <div class="resume-content">
-                        
+
                         <div class="experience-item fade-up">
                             <div class="job-header">
                                 <div class="job-title">Virtual Assistant SEO & Shopify</div>
-                                <div class="duration">2024 - Present</div>
+                                <div class="duration">2024 - 2025</div>
                             </div>
                             <div class="company">Remote</div>
                             <ul class="job-description">
@@ -150,7 +175,8 @@
                             </div>
                             <div class="company">Davao City (Ilo-ilo & Siargao Branches)</div>
                             <ul class="job-description">
-                                <li>Lead data profiling effort for the Ilo-ilo HQ branch and Siargao Callbox Inc branch.</li>
+                                <li>Lead data profiling effort for the Ilo-ilo HQ branch and Siargao Callbox Inc branch.
+                                </li>
                                 <li>Collected and gathered data from online sources.</li>
                                 <li>Cleaned, enriched and standardized data leads.</li>
                             </ul>
@@ -185,6 +211,19 @@
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section fade-up">
+            <div class="container" style="margin-bottom: 3rem;">
+                <h2>Client <span class="highlight">Stories</span></h2>
+            </div>
+            <div class="marquee-container">
+                <div class="marquee-track" id="testimonial-track">
+                    <!-- Cards injected here -->
+                    <p style="padding-left: 2rem; color: var(--text-secondary);">Loading testimonials...</p>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
         <section id="contact">
             <div class="container">
@@ -210,6 +249,121 @@
     </footer>
 
     <script>
+        // Supabase Configuration
+        const SUPABASE_URL = 'https://euyjassmsnxnaqdgdiuj.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_MXw2kYouSwvmn5J8Bhm-jw_KmiFW5uM';
+        const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        async function fetchProjects() {
+            const grid = document.getElementById('portfolio-grid');
+            const loadingText = document.getElementById('loading-text');
+
+            try {
+                const { data, error } = await client
+                    .from('projects')
+                    .select('*')
+                    .order('year', { ascending: false });
+
+                if (error) throw error;
+
+                if (!data || data.length === 0) {
+                    loadingText.textContent = "No projects found. Please add entries to the 'projects' table in Supabase.";
+                    return;
+                }
+
+                loadingText.remove(); // Remove loading state
+
+                data.forEach(project => {
+                    const card = document.createElement('div');
+                    card.classList.add('project-card');
+
+                    const imageHtml = project.image_url
+                        ? `<div class="project-image-container"><img src="${project.image_url}" alt="${project.name}"></div>`
+                        : '';
+
+                    card.innerHTML = `
+                        <div class="project-year">${project.year || 'N/A'}</div>
+                        <h3 class="project-title">${project.name || 'Untitled Project'}</h3>
+                        <p class="project-description">${project.description || ''}</p>
+                        ${imageHtml}
+                    `;
+                    grid.appendChild(card);
+                });
+
+            } catch (err) {
+                console.error("Error fetching projects:", err);
+                loadingText.innerHTML = `Unable to load projects. <br><small>${err.message}</small>`;
+            }
+        }
+
+        // Initialize fetch
+        fetchProjects();
+        fetchTestimonials();
+
+        // Smart Navbar (Hide on scroll down, show on scroll up)
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll Down & past header height
+                header.classList.add('nav-hidden');
+            } else {
+                // Scroll Up
+                header.classList.remove('nav-hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+        });
+
+        async function fetchTestimonials() {
+            const track = document.getElementById('testimonial-track');
+
+            try {
+                const { data, error } = await client
+                    .from('testimonials')
+                    .select('*')
+                    .order('created_at', { ascending: false });
+
+                if (error) throw error;
+
+                if (!data || data.length === 0) {
+                    track.innerHTML = '<p style="padding-left: 2rem;">No testimonials found.</p>';
+                    return;
+                }
+
+                track.innerHTML = ''; // Clear loading
+
+                const createCard = (t) => {
+                    return `
+                        <div class="testimonial-card">
+                            <div class="testimonial-header">
+                                <img src="${t.profile_icon_url || 'assets/profile.png'}" alt="${t.name}" class="testimonial-icon">
+                                <div class="testimonial-info">
+                                    <h4>${t.name}</h4>
+                                    <div class="testimonial-company">${t.company || ''}</div>
+                                </div>
+                            </div>
+                            <div class="testimonial-message">"${t.message}"</div>
+                            <div class="testimonial-help">Helped with: ${t.help_text || 'General Support'}</div>
+                        </div>
+                    `;
+                };
+
+                // Create cards
+                const cardsHtml = data.map(t => createCard(t)).join('');
+
+                // Duplicate for marquee effect (infinite scroll)
+                // We inject the set twice
+                track.innerHTML = cardsHtml + cardsHtml;
+
+            } catch (err) {
+                console.error("Error fetching testimonials:", err);
+                track.innerHTML = `<p style="padding-left: 2rem; color: red;">Error loading testimonials.</p>`;
+            }
+        }
+
         // Simple Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1
@@ -228,4 +382,5 @@
         });
     </script>
 </body>
+
 </html>

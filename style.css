@@ -1,0 +1,354 @@
+:root {
+  --bg-color: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --accent-color: #ff3b30; /* Vivid Red/Orange like inspiration */
+  --font-primary: 'Outfit', sans-serif;
+  --max-width: 1400px;
+  --spacing-section: 120px;
+  --spacing-element: 2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: var(--spacing-section) 0;
+}
+
+/* Animations using GSAP or standard CSS */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Header/Nav */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 0;
+  z-index: 100;
+  mix-blend-mode: difference; /* Ensure visibility on light/dark backgrounds */
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: 80px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero h1 {
+  font-size: clamp(4rem, 15vw, 12rem); /* Massive responsive text */
+  text-transform: uppercase;
+  line-height: 0.9;
+  margin-bottom: 2rem;
+  white-space: nowrap; /* Keep name on one line if possible or controlled break */
+}
+
+.hero-sub {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+}
+
+.role-title {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  color: var(--text-secondary);
+}
+
+.hero-image-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 40vw;
+  height: 60vh; /* Adjust based on image aspect ratio */
+  opacity: 0.6; /* Subtler effect */
+  filter: grayscale(100%);
+  overflow: hidden;
+  transition: filter 0.5s ease;
+}
+
+.hero-image-container:hover {
+  filter: grayscale(0%);
+  opacity: 0.8;
+}
+
+.hero-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Intro Section */
+.intro h2 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.highlight {
+  color: var(--accent-color);
+}
+
+.intro p {
+  text-align: center;
+  max-width: 600px;
+  margin: 2rem auto 0;
+  color: var(--text-secondary);
+}
+
+
+/* Services / Skills Section */
+.services-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.service-item:hover {
+  background-color: rgba(255,255,255,0.02); /* Subtle hover effect */
+}
+
+.service-number {
+  font-family: monospace; /* Use monospaced font for numbers? Or Outline font */
+  font-size: 4rem;
+  font-weight: 300;
+  -webkit-text-stroke: 1px var(--text-secondary); /* Outline effect */
+  color: transparent;
+  margin-right: 2rem;
+  width: 100px; /* Fixed width for alignment */
+}
+
+.service-details h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.service-details p {
+  color: var(--text-secondary);
+  max-width: 500px;
+}
+
+.skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.skill-tag {
+  font-size: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+}
+
+
+/* Resume / Experience Section */
+.resume-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+}
+
+.resume-category {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  position: sticky;
+  top: 100px;
+}
+
+.experience-item {
+  margin-bottom: 4rem;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.job-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.company {
+  color: var(--accent-color);
+}
+
+.duration {
+  font-family: monospace;
+  color: var(--text-secondary);
+}
+
+.job-description li {
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  margin-left: 1.2rem;
+}
+
+/* Contact Footer */
+footer {
+  padding: 4rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 4rem;
+}
+
+.contact-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.contact-info h2 {
+  font-size: 4rem;
+  margin-bottom: 2rem;
+}
+
+.contact-links a {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+
+.contact-links a:hover {
+  color: var(--accent-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 15vw; /* Adjust for mobile */
+  }
+  
+  .hero-sub {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .hero-image-container {
+    width: 80vw;
+    height: 50vh;
+  }
+  
+  .service-item {
+    flex-direction: column;
+  }
+  
+  .service-number {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .resume-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .resume-category {
+    position: static;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-content {
+    flex-direction: column;
+  }
+}

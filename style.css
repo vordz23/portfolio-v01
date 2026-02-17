@@ -75,6 +75,10 @@ header {
   transition: transform 0.3s ease-in-out;
 }
 
+header.nav-hidden {
+  transform: translateY(-100%);
+}
+
 nav {
   display: flex;
   justify-content: space-between;

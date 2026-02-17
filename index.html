@@ -21,6 +21,11 @@
         <div class="container">
             <nav>
                 <a href="#" class="logo">Vordi Drilon</a>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
                 <div class="nav-links">
                     <a href="#about">About</a>
                     <a href="#services">Services</a>
@@ -302,6 +307,22 @@
 
         let lastScrollTop = 0;
         const header = document.querySelector('header');
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const links = document.querySelectorAll('.nav-links a');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            hamburger.classList.toggle('toggle');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('nav-active');
+                hamburger.classList.remove('toggle');
+            });
+        });
 
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;

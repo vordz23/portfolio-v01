@@ -455,8 +455,8 @@ nav {
   font-size: 1.2rem;
   text-transform: uppercase;
   color: var(--text-secondary);
-  position: sticky;
-  top: 100px;
+  /* position: sticky; - Removed as per user request */
+  /* top: 100px; */
 }
 
 .experience-item {
@@ -520,6 +520,32 @@ footer {
   color: var(--accent-color);
 }
 
+/* Hamburger Styles */
+.hamburger {
+  display: none;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 2px;
+  background-color: #fff;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Toggle Animation */
+.hamburger.toggle .line:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.toggle .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.toggle .line:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .hero h1 {
@@ -539,11 +565,12 @@ footer {
 
   .service-item {
     flex-direction: column;
+    gap: 1.5rem;
   }
 
   .service-number {
     font-size: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0;
   }
 
   .resume-grid {
@@ -558,5 +585,44 @@ footer {
 
   .contact-content {
     flex-direction: column;
+  }
+
+  /* Mobile Navigation */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    background: #000000 !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    z-index: 999;
+  }
+
+  .nav-links.nav-active {
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    font-size: 1.3rem;
+    opacity: 1;
+  }
+
+  .btn-download {
+    margin-top: 1rem;
+    font-size: 1rem !important;
   }
 }
